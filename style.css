@@ -3,6 +3,7 @@
 }
 
 body {
+  margin: 50px;
   height: 100vh;
   background: url(/img/background.png) center no-repeat;
   background-size: cover;
@@ -14,7 +15,7 @@ button {
   font-weight: bold;
 }
 
-.header {
+.controller {
   display: block;
   text-align: center;
   color: black;
@@ -41,11 +42,107 @@ button {
   padding: 10px;
 }
 
-.score {
-  width: 80px;
+.score,
+.score > span {
   font-size: 50px;
   background-color: transparent;
   color: rgb(255, 255, 255);
   margin: 20px auto;
   padding: 8px;
+  text-align: center;
+}
+
+.score {
+  font-weight: bold;
+}
+
+.score > span {
+  background-color: white;
+  color: black;
+  font-size: 40px;
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 10px;
+  border: 3px solid black;
+}
+
+.show {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
+
+.carrot {
+  position: absolute;
+}
+
+.carrot * {
+  height: 100px;
+}
+
+.carrot *:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.carrot-1 {
+  position: fixed;
+  left: 50rem;
+  bottom: 15rem;
+}
+
+.carrot-2 {
+  position: fixed;
+  right: 20rem;
+  bottom: 10rem;
+}
+
+.carrot-3 {
+  position: fixed;
+  right: 50rem;
+  bottom: 10em;
+}
+
+.carrot-4 {
+  position: fixed;
+  right: 40rem;
+  bottom: 5rem;
+}
+
+.carrot-5 {
+  position: fixed;
+  right: 80rem;
+  bottom: 10rem;
+}
+
+.carrot-6 {
+  position: fixed;
+  right: 60rem;
+  bottom: 11rem;
+}
+
+.carrot-7 {
+  position: fixed;
+  right: 10rem;
+  bottom: 5rem;
+}
+
+.carrot-8 {
+  position: fixed;
+  right: 14rem;
+  bottom: 13rem;
+}
+
+.carrot-9 {
+  position: fixed;
+  right: 49rem;
+  bottom: 2rem;
+}
+
+.carrot-10 {
+  position: fixed;
+  right: 70rem;
+  bottom: 6rem;
 }
