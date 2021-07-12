@@ -1,3 +1,23 @@
 * {
   display: inline-block;
 }
+
+body {
+  height: 100vh;
+  background: url(/img/background.png) center no-repeat;
+  background-size: cover;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header {
+  display: block;
+  color: black;
+  align-items: center;
+}
+
+.start__btn {
+  border: 5px solid white;
+}
