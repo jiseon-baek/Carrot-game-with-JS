@@ -1,1 +1,1 @@
-# Carrot-game-with-JS-
+# Carrot-game-with-JS
