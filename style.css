@@ -69,7 +69,7 @@ button {
 }
 
 .show {
-  display: inline-block;
+  display: block;
 }
 
 .hide {
@@ -146,4 +146,31 @@ button {
   position: fixed;
   right: 70rem;
   bottom: 6rem;
+}
+
+.modal {
+  position: absolute;
+  bottom: 3em;
+  left: 3.5em;
+  width: 50%;
+  height: 20%;
+  text-align: center;
+  background-color: rgb(235, 236, 147);
+  border: 10px solid white;
+  border-radius: 80px;
+  color: rgb(44, 44, 44);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 80px;
+  font-weight: bolder;
+  padding: 1em;
+}
+
+.modal > button {
+  margin: 20px auto;
+  background-color: rgb(48, 128, 84);
+  padding: 20px;
+  font-family: monospace;
+  font-size: 1.8rem;
+  border: none;
+  color: white;
 }

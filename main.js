@@ -1,37 +1,88 @@
 'use strict'
 
-const carrot = document.querySelector('.carrot__group');
+const carrots = document.querySelector('.carrot__group');
 const carrotIdx = document.querySelectorAll('.carrot');
-let carrots = [];
+const startBtn = document.querySelector('.start__btn');
+const modalBox = document.querySelector('.modal');
 
 
-const removeCarrot = (idx) => {
+
+const removeCarrot = (e) => {
 	
-	carrotIdx.addEventListener('click', () => {
-		
-	})
+	const target = e.target;
+	const carrotGroup = target.parentNode;
+
+	console.log(carrotGroup);
+	
 }
 
 
 const showCarrorts = () => {
-	carrot.classList.remove('hide');
+	carrots.classList.remove('hide');
 }
 
 
+const gameOver = () => {
+	modalBox.style.display = 'block';
+}
+
+
+//Count 함수
+const countStart = () => {
+	const timerSpan = document.querySelector('.count');
+	let count = 11;
+	const counter = setInterval(timer, 1000);
+
+
+	function timer() {
+		count--;
+
+		if (count === 0) {
+			
+			clearInterval(counter);
+			
+			gameOver();
+			
+			
+
+			timerSpan.innerHTML = "";
+			startBtn.innerHTML = "Start!";
+			startBtn.style.fontSize = '28px';
+
+			
+
+		}
+		timerSpan.innerHTML = `00:${count<10 ? `0${count}` : `${count}`}`;
+
+	}
+
+	
+}
+
 const startGame = () => {
-	const startBtn = document.querySelector('.start__btn');
+	
 
 	startBtn.addEventListener('click', () => {
 		showCarrorts();
+		startBtn.innerHTML = "⏸";
+		startBtn.style.fontSize = '60px';
+
+		countStart();
 	})
+
+	
 }
 
 
-function init() {
-	carrot.classList.add('hide');	
+
+
+
+
+(function init() {
+	carrots.classList.add('hide');	
 	startGame();
+	removeCarrot();
 	
 	
-}
-
-init();
+	
+}());
