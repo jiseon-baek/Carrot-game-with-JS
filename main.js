@@ -21,9 +21,20 @@ const showCarrorts = () => {
 	carrots.classList.remove('hide');
 }
 
+//restart버튼 클릭시 페이지 reload
+const restartGame = () => {
+	const reBtn = document.querySelector('.restart__btn');
+
+	reBtn.addEventListener('click', () => {
+		window.location.reload();
+
+	});
+}
+
 
 const gameOver = () => {
 	modalBox.style.display = 'block';
+	restartGame();
 }
 
 
