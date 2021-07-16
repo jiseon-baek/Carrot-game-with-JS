@@ -6,19 +6,19 @@ const startBtn = document.querySelector('.start__btn');
 const modalBox = document.querySelector('.modal');
 
 
+//position rabbit & bugs randomly
 
-const removeCarrot = (e) => {
-	
-	const target = e.target;
-	const carrotGroup = target.parentNode;
+let arrCarrot = new Array();
 
-	console.log(carrotGroup);
-	
-}
+arrCarrot[arrCarrot.length] = 'carrot.png';
+arrCarrot[arrCarrot.length] = 'carrot.png';
+
+
+
 
 
 const showCarrorts = () => {
-	carrots.classList.remove('hide');
+	
 }
 
 //restart버튼 클릭시 페이지 reload
@@ -89,10 +89,14 @@ const startGame = () => {
 
 
 
+
+
+
 (function init() {
 	carrots.classList.add('hide');	
 	startGame();
-	removeCarrot();
+	
+	
 	
 	
 	
