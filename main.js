@@ -8,13 +8,19 @@ const modalBox = document.querySelector('.modal');
 
 //position rabbit & bugs randomly
 
-let arrCarrot = new Array();
+const randomLocation = () => {
 
-arrCarrot[arrCarrot.length] = 'carrot.png';
-arrCarrot[arrCarrot.length] = 'carrot.png';
+	let winWidth = window.innerWidth;
+	let winHeight = window.innerHeight;
 
+	
+	(function randomNum () {
+		for (let i=0; i < 10; i++) {
+			(Math.floor(Math.random() * 10 + 1));
+		}
+	}());
 
-
+}
 
 
 const showCarrorts = () => {
@@ -95,6 +101,7 @@ const startGame = () => {
 (function init() {
 	carrots.classList.add('hide');	
 	startGame();
+	randomLocation();
 	
 	
 	
