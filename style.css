@@ -82,77 +82,21 @@ button {
   display: none;
 }
 
-.carrot {
+.carrot,
+.bug {
   position: absolute;
 }
 
-.carrot * {
-  height: 120px;
-  width: 120px;
+.carrot *,
+.bug * {
+  height: 100px;
+  width: 100px;
 }
 
-.carrot *:hover {
+.carrot *:hover,
+.bug *:hover {
   transform: scale(1.2);
   cursor: pointer;
-}
-.carrot-1 {
-  position: fixed;
-  left: 50rem;
-  bottom: 15rem;
-}
-
-.carrot-2 {
-  position: fixed;
-  right: 20rem;
-  bottom: 10rem;
-}
-
-.carrot-3 {
-  position: fixed;
-  right: 50rem;
-  bottom: 10em;
-}
-
-.carrot-4 {
-  position: fixed;
-  right: 40rem;
-  bottom: 5rem;
-}
-
-.carrot-5 {
-  position: fixed;
-  right: 80rem;
-  bottom: 10rem;
-}
-
-.carrot-6 {
-  position: fixed;
-  right: 60rem;
-  bottom: 11rem;
-}
-
-.carrot-7 {
-  position: fixed;
-  right: 10rem;
-  bottom: 5rem;
-}
-
-.carrot-8 {
-  position: fixed;
-  right: 14rem;
-  bottom: 13rem;
-}
-
-.carrot-9 {
-  position: fixed;
-  right: 49rem;
-  bottom: 2rem;
-}
-
-.carrot-10 {
-  position: fixed;
-  right: 70rem;
-  bottom: 6rem;
 }
 
 .modal {

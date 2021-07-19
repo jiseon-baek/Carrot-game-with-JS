@@ -1,23 +1,51 @@
 'use strict'
 
-const carrots = document.querySelector('.carrot__group');
+const carrots = document.querySelector('.item__group');
 const startBtn = document.querySelector('.start__btn');
 const modalBox = document.querySelector('.modal');
 
 
-//position rabbit & bugs randomly
+//아이템 클릭 시 점수 증가
+
+const addScore = () => {
+	const carrot = document.querySelectorAll('.carrot');
+	const scoreSpan = document.querySelector('.score__span');
+	let score = 0;
+
+	scoreSpan.innerHTML = score;
+
+	for(var i = 0; i<carrot.length; i++) {
+		
+		carrot[i].addEventListener('click', () => {
+
+				score++;
+			
+				scoreSpan.innerHTML="";
+				scoreSpan.innerHTML= score;
+
+				carrot.style.display = 'none';
+				
+			
+
+		});
+
+
+	}
+}
+
+//당근, 벌레들 랜덤 배치
 
 const randomLocation = () => {
 	const gameSection = document.querySelector('.game-space');
-	const imgs = document.querySelectorAll('.carrot');
+	const imgs = document.querySelectorAll('.item');
 
 	let winWidth = gameSection.clientWidth;
 	let winHeight = gameSection.clientHeight;
 
 	for(let i=0; i < imgs.length; i++) {
 		let thisImgs = imgs[i];
-		let randomTop = getRandomNum(0, winHeight) + 350;
-		let randomLeft = getRandomNum(0, winWidth);
+		let randomTop = getRandomNum(0, winHeight - 100);
+		let randomLeft = getRandomNum(0, winWidth - 100);
 		
 
 		thisImgs.style.top = `${randomTop}px`;
@@ -32,7 +60,8 @@ const randomLocation = () => {
 }
 
 
-const showCarrorts = () => {
+const showCarrortsAndBugs = () => {
+	
 	carrots.style.display = 'block';
 	randomLocation();
 }
@@ -89,12 +118,13 @@ const countStart = () => {
 const startGame = () => {
 
 	startBtn.addEventListener('click', () => {
-		showCarrorts();
+		showCarrortsAndBugs();
 		startBtn.innerHTML = "⏸";
 		startBtn.style.fontSize = '60px';
 
 		countStart();
-		showCarrorts();
+		showCarrortsAndBugs();
+		
 	});
 
 	
@@ -112,9 +142,7 @@ const startGame = () => {
 	carrots.classList.add('hide');	
 	startGame();
 	randomLocation();
+	addScore();
 	
-	
-	
-	
-	
+
 }());
