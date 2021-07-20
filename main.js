@@ -3,6 +3,7 @@
 const carrots = document.querySelector('.item__group');
 const startBtn = document.querySelector('.start__btn');
 const modalBox = document.querySelector('.modal');
+const modalSpan = modalBox.querySelector('.modal__mes');
 
 
 //아이템 클릭 시 점수 증가
@@ -10,26 +11,29 @@ const modalBox = document.querySelector('.modal');
 const addScore = () => {
 	const carrot = document.querySelectorAll('.carrot');
 	const scoreSpan = document.querySelector('.score__span');
-	let score = 0;
+	let score = 5;
 
 	scoreSpan.innerHTML = score;
 
 	for(var i = 0; i<carrot.length; i++) {
 		
 		carrot[i].addEventListener('click', () => {
-
-				score++;
+				score--;
 			
 				scoreSpan.innerHTML="";
 				scoreSpan.innerHTML= score;
 
-				carrot.style.display = 'none';
 				
-			
 
+				if (score === 0) {
+					modalBox.style.display='block';
+					modalSpan.innerHTML = '🎉Success!'
+					restartGame();
+					
+				}
+				
 		});
-
-
+		
 	}
 }
 
@@ -91,7 +95,8 @@ const countStart = () => {
 
 
 	function timer() {
-		count--;
+		timerSpan.innerHTML= count;
+		--count;
 
 		if (count === 0) {
 			
@@ -124,6 +129,7 @@ const startGame = () => {
 
 		countStart();
 		showCarrortsAndBugs();
+		addScore();
 		
 	});
 
