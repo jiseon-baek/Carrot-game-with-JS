@@ -6,10 +6,22 @@ const modalBox = document.querySelector('.modal');
 const modalSpan = modalBox.querySelector('.modal__mes');
 
 
-//아이템 클릭 시 점수 증가
+const bgSound = new Audio('./sound/bg.mp3');
+const alertSound = new Audio('./sound/alert.wav');
+
+
+
+
+
+
+
+
+
+//아이템 클릭 시 점수 증가 및 감소
 
 const addScore = () => {
 	const carrot = document.querySelectorAll('.carrot');
+	const bug = document.querySelectorAll('.bug');
 	const scoreSpan = document.querySelector('.score__span');
 	let score = 5;
 
@@ -23,18 +35,37 @@ const addScore = () => {
 				scoreSpan.innerHTML="";
 				scoreSpan.innerHTML= score;
 
-				
+				const carrotAudio = new Audio('./sound/carrot_pull.mp3');
+				carrotAudio.play();
+
+
 
 				if (score === 0) {
 					modalBox.style.display='block';
 					modalSpan.innerHTML = '🎉Success!'
 					restartGame();
+					bgSound.pause();
+					const winSound = new Audio('./sound/game_win.mp3');
+					winSound.play();
+					
 					
 				}
 				
 		});
+
+		bug[i].addEventListener('click', () => {
+			const bugSound = new Audio('./sound/bug_pull.mp3');
+			bugSound.play();
+			gameOver();
+			bgSound.pause();
+			alertSound.play();
+			
+		});
+
 		
 	}
+
+	
 }
 
 //당근, 벌레들 랜덤 배치
@@ -120,6 +151,8 @@ const countStart = () => {
 	
 }
 
+
+
 const startGame = () => {
 
 	startBtn.addEventListener('click', () => {
@@ -130,6 +163,7 @@ const startGame = () => {
 		countStart();
 		showCarrortsAndBugs();
 		addScore();
+		bgSound.play();
 		
 	});
 
@@ -149,6 +183,7 @@ const startGame = () => {
 	startGame();
 	randomLocation();
 	addScore();
+	
 	
 
 }());
