@@ -10,13 +10,6 @@ const bgSound = new Audio('./sound/bg.mp3');
 const alertSound = new Audio('./sound/alert.wav');
 
 
-
-
-
-
-
-
-
 //아이템 클릭 시 점수 증가 및 감소
 
 const addScore = () => {
@@ -35,7 +28,7 @@ const addScore = () => {
 				scoreSpan.innerHTML="";
 				scoreSpan.innerHTML= score;
 				
-				e.target.style.display='none';
+				e.target.style.display='none'; //당근 클릭 시 display='none'
 
 				const carrotAudio = new Audio('./sound/carrot_pull.mp3');
 				carrotAudio.play();
@@ -66,8 +59,6 @@ const addScore = () => {
 
 		
 	}
-
-	
 }
 
 //당근, 벌레들 랜덤 배치
@@ -124,8 +115,8 @@ const gameOver = () => {
 const countStart = () => {
 	const timerSpan = document.querySelector('.count');
 	let count = 11;
+	
 	const counter = setInterval(timer, 1000);
-
 
 	function timer() {
 		timerSpan.innerHTML= count;
@@ -147,7 +138,7 @@ const countStart = () => {
 
 			
 
-		}
+		} 
 		timerSpan.innerHTML = `00:${count<10 ? `0${count}` : `${count}`}`;
 
 	}
