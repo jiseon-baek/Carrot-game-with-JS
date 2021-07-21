@@ -23,7 +23,7 @@ const addScore = () => {
 	const carrot = document.querySelectorAll('.carrot');
 	const bug = document.querySelectorAll('.bug');
 	const scoreSpan = document.querySelector('.score__span');
-	let score = 5;
+	let score = carrot.length;
 
 	scoreSpan.innerHTML = score;
 
@@ -134,6 +134,8 @@ const countStart = () => {
 			clearInterval(counter);
 			
 			gameOver();
+			alertSound.play();
+			bgSound.pause();
 			
 			
 
@@ -169,14 +171,6 @@ const startGame = () => {
 
 	
 }
-
-
-
-
-
-
-
-
 
 (function init() {
 	carrots.classList.add('hide');	
