@@ -29,11 +29,13 @@ const addScore = () => {
 
 	for(var i = 0; i<carrot.length; i++) {
 		
-		carrot[i].addEventListener('click', () => {
+		carrot[i].addEventListener('click', (e) => {
 				score--;
 			
 				scoreSpan.innerHTML="";
 				scoreSpan.innerHTML= score;
+				
+				e.target.style.display='none';
 
 				const carrotAudio = new Audio('./sound/carrot_pull.mp3');
 				carrotAudio.play();
