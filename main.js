@@ -1,14 +1,21 @@
 'use strict'
 
+import ModalBox from './modalBox.js';
+
+
+
+
 const carrots = document.querySelector('.item__group');
 const startBtn = document.querySelector('.start__btn');
-const modalBox = document.querySelector('.modal');
-const modalSpan = modalBox.querySelector('.modal__mes');
 
 
 const bgSound = new Audio('./sound/bg.mp3');
 const alertSound = new Audio('./sound/alert.wav');
 
+const finishGame = new ModalBox();
+finishGame.setClickListener(() => {
+	window.location.reload();
+})
 
 //아이템 클릭 시 점수 증가 및 감소
 
@@ -36,10 +43,9 @@ const addScore = () => {
 
 
 				if (score === 0) {
-					modalBox.style.display='block';
-					modalSpan.innerHTML = '🎉Success!'
-					restartGame();
+					
 					bgSound.pause();
+					finishGame.gameOver();
 					const winSound = new Audio('./sound/game_win.mp3');
 					winSound.play();
 					
@@ -51,7 +57,7 @@ const addScore = () => {
 		bug[i].addEventListener('click', () => {
 			const bugSound = new Audio('./sound/bug_pull.mp3');
 			bugSound.play();
-			gameOver();
+			finishGame.gameOver();
 			bgSound.pause();
 			alertSound.play();
 			
@@ -94,21 +100,9 @@ const showCarrortsAndBugs = () => {
 	randomLocation();
 }
 
-//restart버튼 클릭시 페이지 reload
-const restartGame = () => {
-	const reBtn = document.querySelector('.restart__btn');
-
-	reBtn.addEventListener('click', () => {
-		window.location.reload();
-
-	});
-}
 
 
-const gameOver = () => {
-	modalBox.style.display = 'block';
-	restartGame();
-}
+
 
 
 //Count 함수
@@ -125,11 +119,9 @@ const countStart = () => {
 		if (count === 0) {
 			
 			clearInterval(counter);
-			
-			gameOver();
 			alertSound.play();
 			bgSound.pause();
-			
+			finishGame.gameOver();
 			
 
 			timerSpan.innerHTML = "";
