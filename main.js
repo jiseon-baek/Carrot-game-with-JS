@@ -1,6 +1,6 @@
 'use strict'
 
-import ModalBox from './modalBox.js';
+import ModalBox from './modalbox.js';
 
 
 
