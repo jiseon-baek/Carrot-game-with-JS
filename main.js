@@ -1,7 +1,7 @@
 'use strict'
 
 import ModalBox from './modalbox.js';
-
+import Field from './field.js';
 
 
 
@@ -15,7 +15,7 @@ const alertSound = new Audio('./sound/alert.wav');
 const finishGame = new ModalBox();
 finishGame.setClickListener(() => {
 	window.location.reload();
-})
+});
 
 //아이템 클릭 시 점수 증가 및 감소
 
@@ -69,29 +69,9 @@ const addScore = () => {
 
 //당근, 벌레들 랜덤 배치
 
-const randomLocation = () => {
-	const gameSection = document.querySelector('.game-space');
-	const imgs = document.querySelectorAll('.item');
+const randomLocate = new Field();
 
-	let winWidth = gameSection.clientWidth;
-	let winHeight = gameSection.clientHeight;
 
-	for(let i=0; i < imgs.length; i++) {
-		let thisImgs = imgs[i];
-		let randomTop = getRandomNum(0, winHeight - 100);
-		let randomLeft = getRandomNum(0, winWidth - 100);
-		
-
-		thisImgs.style.top = `${randomTop}px`;
-		thisImgs.style.left = `${randomLeft}px`;
-	}
-
-	
-	function getRandomNum (min, max) {
-		return Math.random() * (max - min) + min;
-	};
-
-}
 
 
 const showCarrortsAndBugs = () => {
@@ -160,7 +140,7 @@ const startGame = () => {
 (function init() {
 	carrots.classList.add('hide');	
 	startGame();
-	randomLocation();
+	randomLocate.randomLocation();
 	addScore();
 	
 	
