@@ -20,10 +20,14 @@ export default class ModalBox {
 
 	}
 
-	gameOver() {
+	gameSuccess() {
 		this.modalBox.style.display = 'block';
 		this.modalSpan.innerHTML = '🎉Success!';
 		
+	}
+	gameOver() {
+		this.modalBox.style.display = "block";
+		this.modalSpan.innerHTML = 'You Lose 👻'
 	}
 
 }

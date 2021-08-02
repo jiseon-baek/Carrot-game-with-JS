@@ -45,7 +45,7 @@ const addScore = () => {
 				if (score === 0) {
 					
 					bgSound.pause();
-					finishGame.gameOver();
+					finishGame.gameSuccess();
 					const winSound = new Audio('./sound/game_win.mp3');
 					winSound.play();
 					
