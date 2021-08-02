@@ -77,7 +77,7 @@ const randomLocate = new Field();
 const showCarrortsAndBugs = () => {
 	
 	carrots.style.display = 'block';
-	randomLocation();
+	randomLocate.randomLocation();
 }
 
 
