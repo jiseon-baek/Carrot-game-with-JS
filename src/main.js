@@ -2,6 +2,7 @@
 
 import ModalBox from './modalbox.js';
 import Field from './field.js';
+import * as sound from './sound.js';
 
 
 
@@ -9,13 +10,13 @@ const carrots = document.querySelector('.item__group');
 const startBtn = document.querySelector('.start__btn');
 
 
-const bgSound = new Audio('./sound/bg.mp3');
-const alertSound = new Audio('./sound/alert.wav');
+
 
 const finishGame = new ModalBox();
 finishGame.setClickListener(() => {
 	window.location.reload();
 });
+
 
 //아이템 클릭 시 점수 증가 및 감소
 
@@ -37,17 +38,17 @@ const addScore = () => {
 				
 				e.target.style.display='none'; //당근 클릭 시 display='none'
 
-				const carrotAudio = new Audio('./sound/carrot_pull.mp3');
-				carrotAudio.play();
+				
+				sound.playCarrot();
 
 
 
 				if (score === 0) {
 					
-					bgSound.pause();
+					sound.pauseBg();
 					finishGame.gameSuccess();
-					const winSound = new Audio('./sound/game_win.mp3');
-					winSound.play();
+					
+					sound.playWin();
 					
 					
 				}
@@ -55,11 +56,12 @@ const addScore = () => {
 		});
 
 		bug[i].addEventListener('click', () => {
-			const bugSound = new Audio('./sound/bug_pull.mp3');
-			bugSound.play();
+			
+			sound.playBg();
 			finishGame.gameOver();
-			bgSound.pause();
-			alertSound.play();
+			sound.pauseBg();
+			sound.playAlert();
+			
 			
 		});
 
@@ -99,8 +101,8 @@ const countStart = () => {
 		if (count === 0) {
 			
 			clearInterval(counter);
-			alertSound.play();
-			bgSound.pause();
+			sound.playAlert();
+			sound.pauseBg();
 			finishGame.gameOver();
 			
 
@@ -130,7 +132,7 @@ const startGame = () => {
 		countStart();
 		showCarrortsAndBugs();
 		addScore();
-		bgSound.play();
+		sound.playBg();
 		
 	});
 
