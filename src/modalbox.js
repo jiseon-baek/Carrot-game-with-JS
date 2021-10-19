@@ -27,7 +27,7 @@ export default class ModalBox {
 	}
 	gameOver() {
 		this.modalBox.style.display = "block";
-		this.modalSpan.innerHTML = 'You Lost 👻'
+		this.modalSpan.innerHTML = 'You Lost 💣'
 		
 	}
 
