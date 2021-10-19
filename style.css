@@ -7,7 +7,7 @@ body {
   margin: 50px;
   width: 90%;
   height: 100%;
-  background: url(./img/bg.png) center/cover no-repeat;
+  background: url(./img/bg.svg) center/cover no-repeat;
   background-color: rgb(199, 196, 48);
 }
 
