@@ -1,1 +1,1 @@
-# Carrot-game-with-JS
+# Dalgona-game
