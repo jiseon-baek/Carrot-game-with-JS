@@ -49,8 +49,6 @@ export const countStart = () => {
 		--count;
 
 		if (count === 0) {
-			
-			
 			sound.playAlert();
 			sound.pauseBg();
 			finishGame.gameOver();

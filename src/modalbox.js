@@ -22,7 +22,7 @@ export default class ModalBox {
 
 	gameSuccess() {
 		this.modalBox.style.display = 'block';
-		this.modalSpan.innerHTML = '💸Success!';
+		this.modalSpan.innerHTML = '💸 Success!';
 		
 	}
 	gameOver() {
