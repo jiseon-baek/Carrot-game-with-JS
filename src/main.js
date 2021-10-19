@@ -11,63 +11,12 @@ const startBtn = document.querySelector('.start__btn');
 
 
 
-
 const finishGame = new ModalBox();
 finishGame.setClickListener(() => {
 	window.location.reload();
 });
 
 
-//아이템 클릭 시 점수 증가 및 감소
-
-const addScore = () => {
-	const carrot = document.querySelectorAll('.carrot');
-	const bug = document.querySelectorAll('.bug');
-	const scoreSpan = document.querySelector('.score__span');
-	let score = carrot.length;
-
-	scoreSpan.innerHTML = score;
-
-	for(var i = 0; i<carrot.length; i++) {
-		
-		carrot[i].addEventListener('click', (e) => {
-				score--;
-			
-				scoreSpan.innerHTML="";
-				scoreSpan.innerHTML= score;
-				
-				e.target.style.display='none'; //당근 클릭 시 display='none'
-
-				
-				sound.playCarrot();
-
-
-
-				if (score === 0) {
-					
-					sound.pauseBg();
-					finishGame.gameSuccess();
-					
-					sound.playWin();
-					
-					
-				}
-				
-		});
-
-		bug[i].addEventListener('click', () => {
-			
-			sound.playBg();
-			finishGame.gameOver();
-			sound.pauseBg();
-			sound.playAlert();
-			
-			
-		});
-
-		
-	}
-}
 
 //당근, 벌레들 랜덤 배치
 
@@ -87,11 +36,12 @@ const showCarrortsAndBugs = () => {
 
 
 
+
+
 //Count 함수
-const countStart = () => {
+export const countStart = () => {
 	const timerSpan = document.querySelector('.count');
-	let count = 11;
-	
+	let count = 10;
 	const counter = setInterval(timer, 1000);
 
 	function timer() {
@@ -100,25 +50,81 @@ const countStart = () => {
 
 		if (count === 0) {
 			
-			clearInterval(counter);
+			
 			sound.playAlert();
 			sound.pauseBg();
 			finishGame.gameOver();
 			
-
 			timerSpan.innerHTML = "";
 			startBtn.innerHTML = "Start!";
-			startBtn.style.fontSize = '28px';
+			startBtn.style.fontSize = '24px';
+			clearInterval(counter);
 
 			
-
 		} 
 		timerSpan.innerHTML = `00:${count<10 ? `0${count}` : `${count}`}`;
 
+		
 	}
 
-	
 }
+
+//아이템 클릭 시 점수 증가 및 감소
+
+const addScore = () => {
+	const carrot = document.querySelectorAll('.carrot');
+	const bug = document.querySelectorAll('.bug');
+	const scoreSpan = document.querySelector('.score__span');
+	let score = carrot.length;
+
+	const timerSpan = document.querySelector('.count');
+
+	scoreSpan.innerHTML = score;
+
+	for(var i = 0; i<carrot.length; i++) {
+		
+		carrot[i].addEventListener('click', (e) => {
+				score--;
+			
+				scoreSpan.innerHTML="";
+				scoreSpan.innerHTML= score;
+				
+				e.target.style.display='none'; //당근 클릭 시 display='none'
+
+				sound.playCarrot();
+
+				if (score === 0) {
+					
+					sound.pauseBg();
+					finishGame.gameSuccess();
+					
+					sound.playWin();
+					startBtn.innerHTML="⏹";
+					timerSpan.style.opacity=0;
+
+					
+				}
+		});
+
+		bug[i].addEventListener('click', () => {
+			
+			sound.playBg();
+			finishGame.gameOver();
+			sound.pauseBg();
+			sound.playAlert();
+			startBtn.innerHTML="⏹";
+			timerSpan.style.opacity=0;
+			
+		});
+
+		
+	}
+}
+
+
+
+
+
 
 
 
@@ -145,6 +151,4 @@ const startGame = () => {
 	randomLocate.randomLocation();
 	addScore();
 	
-	
-
 }());
