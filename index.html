@@ -9,79 +9,83 @@
 	<script type="module" src="./src/main.js" defer></script>
 </head>
 <body>
+	<div class="total">
 
 	
-	<div class="all">
+		<section class="title">
+			
+		</section>
+		<div class="game">
+			
+			<section class="controller">
+				<button class="start__btn">START!</button>
+				<div class="count">00:00</div>
+				<div class="score">
+					Score 🎯
+					<span class="score__span">0</span>
+				</div>
+			</section>
 
-		<section class="controller">
-			<button class="start__btn">START!</button>
-			<div class="count">00:00</div>
-			<div class="score">
-				Score 🎯
-				<span class="score__span">0</span>
+		<section class="game-space">
+			<div class="item__group">
+				<div class="item carrot carrot-1">
+					<img src="./img/tri.png" alt="carrot">
+				</div>
+		
+				<div class="item carrot carrot-2">
+					<img src="./img/cir.png" alt="carrot">
+				</div>
+		
+				<div class="item carrot carrot-3">
+					<img src="./img/tri.png" alt="carrot">
+				</div>
+		
+				<div class="item carrot carrot-4">
+					<img src="./img/cir.png" alt="carrot">
+				</div>
+		
+				<div class="item carrot carrot-5">
+					<img src="./img/tri.png" alt="carrot">
+				</div>
+		
+				<div class="item bug bug-6">
+					<img src="./img/front.png" alt="bug">
+				</div>
+		
+				<div class="item bug bug-7">
+					<img src="./img/front.png" alt="bug">
+				</div>
+		
+				<div class="item bug bug-8">
+					<img src="./img/front.png" alt="bug">
+				</div>
+		
+				<div class="item bug bug-9">
+					<img src="./img/front.png" alt="bug">
+				</div>
+		
+				<div class="item bug bug-10">
+					<img src="./img/front.png" alt="bug">
+				</div>
 			</div>
+			
+
 		</section>
 
-	<section class="game-space">
-		<div class="item__group">
-			<div class="item carrot carrot-1">
-				<img src="./img/tri.png" alt="carrot">
-			</div>
-	
-			<div class="item carrot carrot-2">
-				<img src="./img/cir.png" alt="carrot">
-			</div>
-	
-			<div class="item carrot carrot-3">
-				<img src="./img/tri.png" alt="carrot">
-			</div>
-	
-			<div class="item carrot carrot-4">
-				<img src="./img/cir.png" alt="carrot">
-			</div>
-	
-			<div class="item carrot carrot-5">
-				<img src="./img/tri.png" alt="carrot">
-			</div>
-	
-			<div class="item bug bug-6">
-				<img src="./img/front.png" alt="bug">
-			</div>
-	
-			<div class="item bug bug-7">
-				<img src="./img/front.png" alt="bug">
-			</div>
-	
-			<div class="item bug bug-8">
-				<img src="./img/front.png" alt="bug">
-			</div>
-	
-			<div class="item bug bug-9">
-				<img src="./img/front.png" alt="bug">
-			</div>
-	
-			<div class="item bug bug-10">
-				<img src="./img/front.png" alt="bug">
-			</div>
+		<div class="modal" style="display: none;">
+			<span class='modal__mes'>
+				☠️ Game Over!
+			</span>
+			
+
+
+			<button class="restart__btn">
+				Restart 🔁
+			</button>
 		</div>
-		
 
-	</section>
-
-	<div class="modal" style="display: none;">
-		<span class='modal__mes'>
-			☠️ Game Over!
-		</span>
-		
-
-
-		<button class="restart__btn">
-			Restart 🔁
-		</button>
+		</div>
 	</div>
-
-</div>
-	
 
 </body>
 </html>
