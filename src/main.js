@@ -28,7 +28,7 @@ const randomLocate = new Field();
 const showCarrortsAndBugs = () => {
 	
 	carrots.style.display = 'block';
-	randomLocate.getRandomLocate();
+	randomLocate.randomLocation();
 }
 
 
@@ -87,7 +87,7 @@ const addScore = () => {
 				scoreSpan.innerHTML="";
 				scoreSpan.innerHTML= score;
 				
-				e.target.style.display='none'; //당근 클릭 시 display='none'
+				e.target.style.display='none'; 
 
 				sound.playCarrot();
 
@@ -112,6 +112,7 @@ const addScore = () => {
 			sound.playAlert();
 			startBtn.innerHTML="⏹";
 			timerSpan.style.opacity=0;
+			clearInterval(counter);
 			
 		});
 
@@ -146,7 +147,7 @@ const startGame = () => {
 (function init() {
 	carrots.classList.add('hide');	
 	startGame();
-	randomLocate.getRandomLocate();
+	randomLocate.randomLocation();
 	addScore();
 	
 }());
