@@ -12,8 +12,6 @@ export default class ModalBox {
 		
 	}
 
-	
-
 	setClickListener(onClick) {
 		this.onClick = onClick;
 		

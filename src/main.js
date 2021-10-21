@@ -28,7 +28,7 @@ const randomLocate = new Field();
 const showCarrortsAndBugs = () => {
 	
 	carrots.style.display = 'block';
-	randomLocate.randomLocation();
+	randomLocate.getRandomLocate();
 }
 
 
@@ -146,7 +146,7 @@ const startGame = () => {
 (function init() {
 	carrots.classList.add('hide');	
 	startGame();
-	randomLocate.randomLocation();
+	randomLocate.getRandomLocate();
 	addScore();
 	
 }());
